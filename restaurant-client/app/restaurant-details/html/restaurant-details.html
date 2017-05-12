@@ -31,8 +31,8 @@
 					<p><jk-rating-stars max-rating="5" rating="resturantDetails.rating" read-only="true"  ></p>
 				</div>
 				<div class="attribute">
-					<label>Reviews (0): </label>
-					<p><jk-rating-stars max-rating="5" rating="0" read-only="true"  ></p>
+					<label>Reviews ({{reviews.length}}): </label>
+					<p><jk-rating-stars max-rating="5" rating="avarageRating" read-only="true"  ></p>
 				</div>
 	       </div>
 			
@@ -45,33 +45,37 @@
 	  </div>
 	<div class="row" style="padding: 20px;">
                 <!-- <hr> -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-circle" width="64" height="64" src="restaurant-details/images/Unknown_Person.png">
-                    </a>
-                    <div class="m" alt="">
-                        <!-- restaurant-details/images/Unknown_Person.png -->
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM <jk-rating-stars class="review-rating" max-rating="5" rating="0" read-only="true"  ></small>
-                        </h4>
+                <h3 ng-show="reviews.length === 0" style="text-align: center;">No reviews yet</h3>
+                <div ng-show="reviews.length !== 0" ng-repeat="review in reviews">
+	                <div class="media review-section">
+	                    <a class="pull-left" href="#">
+	                        <img class="media-object img-circle" width="64" height="64" src="restaurant-details/images/Unknown_Person.png">
+	                    </a>
+	                    
+	                    <div class="media-body" >
+	                        <h4 class="media-heading">{{review.name}}
+	                            <small>{{review.date | date: "MMMM dd, yyyy 'at' h:mm a"}} <jk-rating-stars class="review-rating" max-rating="5" rating="review.rating" read-only="true"  ></small>
+	                     
+	                        </h4>
 
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+	                        {{review.description}}
+	                    </div>
+	                </div>
 
-              
+              	</div>
                  <hr>
                   <!-- Reviews Form -->
                 <div class="well">
                     <h4>Write a review for {{resturantDetails.name}} restaurant:</h4>
                     <form role="form">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                            <jk-rating-stars max-rating="5" rating="0" read-only="false"  on-rating="onItemRating(rating)"  >
+                        	<input class="form-control" placeholder="Your name" type="text" ng-model="name">
+                        	<br>
+                            <textarea class="form-control" placeholder="Your review" rows="3" ng-model="description"></textarea>
+                            <br>
+                            <jk-rating-stars max-rating="5" rating="0" read-only="false"  on-rating="onRestaurantRating(rating)"  >
                         </div>
-                        <button type="submit" class="btn btn-success submit-review-btn">Submit</button>
+                        <button type="submit" ng-click="submitReview()" class="btn btn-success submit-review-btn">Submit</button>
                     </form>
                 </div>
          </div>

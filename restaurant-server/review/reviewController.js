@@ -5,6 +5,7 @@ var restaurantDetailsService = require("./reviewService");
 router.post('/', function(req, res, next) {
 
     var data = req.body;
+
     if(data === undefined || data == null){
         onFail();
     }
