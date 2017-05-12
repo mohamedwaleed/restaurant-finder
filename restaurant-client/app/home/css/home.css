@@ -1,0 +1,219 @@
+/* navbar */
+.navbar-default {
+    background-color: #f60;
+    border-color: #f60;
+}
+/* Title */
+.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #ffbbbc;
+}
+/* Link */
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #333;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* Caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #ecf0f1;
+    border-bottom-color: #ecf0f1;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* Mobile version */
+.navbar-default .navbar-toggle {
+    border-color: #c0392b;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #c0392b;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+          color: #333;
+    }
+}
+.cont{
+    margin-top: 50px;
+}
+
+.banner {
+    background-image: url('../images/banner3.jpg');
+    width: 100%;
+    min-height : 400px;
+    margin-bottom: 20px;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+}
+
+#color_layer{
+    background-color: rgba(19, 115, 24, 0.3);
+    min-height: 530px;
+}
+.finder{
+    margin-top: 18%;
+}
+
+
+.profile-card {
+    background-color: #222222;
+  margin-bottom: 20px;
+            
+ }
+        
+.profile-pic {
+  border-radius: 50%;
+  position: absolute;
+  top: -65px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+  max-width: 100px;
+  -webkit-transition: all 0.4s;
+          transition: all 0.4s;
+                }
+
+                
+.profile-info {
+        color: #BDBDBD;
+        padding: 25px;
+        position: relative;
+        margin-top: 15px;
+                }
+        
+.profile-info h2 {
+    color: #E8E8E8;
+    letter-spacing: 4px;
+      padding-bottom: 12px;
+                }
+                
+.profile-info span {
+    display: block;
+    font-size: 12px;
+    color: #4CB493;
+    letter-spacing: 2px;
+            }
+
+.profile-info a {
+     color: #4CB493;
+        }
+.profile-info i {
+        padding: 15px 35px 0px 35px;
+        }
+        
+
+.profile-card:hover .profile-pic {
+    
+    transform: scale(1.1);
+        }
+
+.profile-card:hover .profile-info hr  {
+    opacity: 1;
+        }
+        
+        
+        
+        
+/* Underline From Center */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 52%;
+  right: 52%;
+  bottom: 0;
+  background: #FFFFFF;
+  border-radius: 50%;
+  height: 3px;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.profile-card:hover .hvr-underline-from-center:before, .profile-card:focus .hvr-underline-from-center:before, .profile-card:active .hvr-underline-from-center:before {
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #CECECE;
+}
+
+
+
+.title{
+    font: italic 2em Georgia,"Times New Roman","Century Schoolbook L",serif;
+}
+
+.search {
+    background-color: #f60 ;
+    border-color:#f60;    
+    padding-right: 13px;
+    padding-left: 13px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.banner-title {
+    width: 983px;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 3em;
+    text-shadow: 0 2px 3px #191919;
+}
+
+.search-input{
+    width: 500px !important; 
+    padding: 18px !important;
+}

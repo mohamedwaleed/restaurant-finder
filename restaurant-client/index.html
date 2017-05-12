@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	// 'use strict';
+	this.x = 5;
+		function foo() {
+			console.log(this.x);
+		}
+		
+		function bar() {
+			
+			// console.log(this.x);
+			foo();
+		}
+		bar();
+
+
+		function xx() {
+			function m() {
+				console.log("mm");
+			}
+		}
+		xx();
+		// foo();
+		// f();
+		// function f() {console.log("declaration");}
+
+
+		// function test(){
+		// 	this.m = "test";
+		// 	this.getm = function() {
+		// 		console.log(this);
+		// 		return this.m;
+		// 	}
+		// };
+		// var t = new test();
+		// console.log(t.getm());
+	</script>
+</head>
+<body>
+
+</body>
+</html>
