@@ -1,0 +1,81 @@
+<div class="container-fluid" style="margin-bottom: 10px;">
+	
+	<div class="row" style="margin-top: 10px;">
+		<div class="col-md-6">
+			<div >
+				<ng-map class="map" center="{{resturantDetails.geometry.location.lat}},{{resturantDetails.geometry.location.lng}}" zoom="16">
+					<marker  position="{{resturantDetails.geometry.location.lat}}, {{resturantDetails.geometry.location.lng}}" ></marker>
+
+				</ng-map>
+				  <!-- <ng-map center="41,-87" zoom="3"></ng-map> -->
+
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div ng-show="isLoading" style="text-align: center;margin-top: 10px;">
+	        	<span class="fa fa-spinner fa-spin" style="font-size:30px;color: #f60;"></span>
+	       </div>
+	       <div ng-show="!isLoading" class="details">
+		       	<h2 style="text-align: center;">{{resturantDetails.name}} <span ng-show="resturantDetails.opening_hours.open_now" style="color: #599442;">(Open now)</span> <span ng-show="!resturantDetails.opening_hours.open_now" style="color: red;">(Close now)</span></h2>
+				<div class="attribute">
+					<label>Address: </label>
+					<p>{{resturantDetails.formatted_address}}</p>
+				</div>
+				<div class="attribute">
+					<label>Phone number: </label>
+					<p ng-show="resturantDetails.international_phone_number">{{resturantDetails.international_phone_number}}</p>
+					<p ng-show="!resturantDetails.international_phone_number">No phone number provided</p>
+				</div>
+				<div class="attribute">
+					<label>Google Rating: </label>
+					<p><jk-rating-stars max-rating="5" rating="resturantDetails.rating" read-only="true"  ></p>
+				</div>
+				<div class="attribute">
+					<label>Reviews (0): </label>
+					<p><jk-rating-stars max-rating="5" rating="0" read-only="true"  ></p>
+				</div>
+	       </div>
+			
+		</div>
+	</div>
+
+	<hr>
+	 <div class="title">
+	    <h2>Reviews: </h2>
+	  </div>
+	<div class="row" style="padding: 20px;">
+                <!-- <hr> -->
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object img-circle" width="64" height="64" src="restaurant-details/images/Unknown_Person.png">
+                    </a>
+                    <div class="m" alt="">
+                        <!-- restaurant-details/images/Unknown_Person.png -->
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Start Bootstrap
+                            <small>August 25, 2014 at 9:30 PM <jk-rating-stars class="review-rating" max-rating="5" rating="0" read-only="true"  ></small>
+                        </h4>
+
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                </div>
+
+              
+                 <hr>
+                  <!-- Reviews Form -->
+                <div class="well">
+                    <h4>Write a review for {{resturantDetails.name}} restaurant:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                            <jk-rating-stars max-rating="5" rating="0" read-only="false"  on-rating="onItemRating(rating)"  >
+                        </div>
+                        <button type="submit" class="btn btn-success submit-review-btn">Submit</button>
+                    </form>
+                </div>
+         </div>
+	</div>
+
+</div>	
+<!-- </div> -->

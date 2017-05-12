@@ -9,10 +9,16 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-jk-rating-stars/dist/jk-rating-stars.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="home/css/home.css">
+    <link rel="stylesheet" type="text/css" href="restaurant-details/css/restaurant-details.css">
+
     <!-- endbuild -->
   </head>
   <body ng-app="returantFinderApp">
@@ -52,17 +58,26 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-jk-rating-stars/dist/jk-rating-stars.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
+        <script src="http://maps.google.com/maps/api/js?key=AIzaSyBvh95idRI46rYYWqQpoHatZve2GoWIfUg"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="commons/js/app.js"></script>
+        <script src="commons/js/constants.js"></script>
         <script src="commons/js/main.js"></script>
 
         <script src="home/js/route.js"></script>
         <script src="home/js/home.js"></script>
         <script src="home/js/home-model.js"></script>
         <script src="home/js/home-service.js"></script>
+
+        <script src="restaurant-details/js/restaurant-details.js"></script>
+        <script src="restaurant-details/js/restaurant-details-model.js"></script>
+        <script src="restaurant-details/js/restaurant-details-service.js"></script>
+        <script src="restaurant-details/js/route.js"></script>
 
         <!-- endbuild -->
 </body>

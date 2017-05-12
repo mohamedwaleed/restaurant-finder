@@ -21,63 +21,45 @@
   <div class="title">
     <h1>Restaurants near you</h1>
   </div>
+  
 	<div class="row">
 
 
     <div class="col-lg-12">
-      <div>
+      <div ng-show="isLoading" style="text-align: center;">
+        <span class="fa fa-spinner fa-spin" style="font-size:30px;color: #f60;"></span>
+      </div>
+      <h2 ng-show="!isLoading && nearbyResturants.length === 0" style="text-align: center;">No nearby restaurant around you</h2>
+      <div ng-show="!isLoading" ng-repeat="restaurant in nearbyResturants">
 
 
         <div class="col-md-4">
-          <div class="profile-card text-center">
+          <div class="profile-card text-center" >
 <!-- 
             <img class="img-responsive" src="https://images.unsplash.com/photo-1454678904372-2ca94103eca4?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925"> -->
-            <div class="profile-info">
+            <div class="profile-info" ui-sref="app.restaurant_details({placeId:restaurant.place_id})">
 
             
-              <h2 class="hvr-underline-from-center">Rod<span>Digital / Design Consultant</span></h2>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-              <a href="http://www.twitter.com/mike_youngg"><i class="fa fa-twitter fa-2x"></i></a>
+              <h2 class="hvr-underline-from-center">{{restaurant.name}}<span>{{restaurant.vicinity}}</span></h2>
+
+              <h4 style="color:green" ng-show="restaurant.opening_hours.open_now">Opened</h4>
+              <h4 style="color:red" ng-show="!restaurant.opening_hours.open_now">Closed</h4>
+
+              <jk-rating-stars max-rating="5" rating="restaurant.rating" read-only="true"  >
+</jk-rating-stars>
+              <!-- <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div> -->
+         <!--      <a href="http://www.twitter.com/mike_youngg"><i class="fa fa-twitter fa-2x"></i></a>
               <a href="mailto:michael_y@live.co.uk"><i class="fa fa-envelope-o fa-2x"></i></a>
-              <a href="http://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a>
+              <a href="http://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a> -->
             </div>
 
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="profile-card text-center">
-<!-- 
-            <img class="img-responsive" src="https://images.unsplash.com/photo-1451188502541-13943edb6acb?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925"> -->
-            <div class="profile-info">
-
-           
-              <h2 class="hvr-underline-from-center">Adam<span>Developer</span></h2>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-              <a href="http://www.twitter.com/mike_youngg"><i class="fa fa-twitter fa-2x"></i></a>
-              <a href="mailto:michael_y@live.co.uk"><i class="fa fa-envelope-o fa-2x"></i></a>
-              <a href="http://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="profile-card text-center">
-
-            <div class="profile-info">
-
-            
-              <h2 class="hvr-underline-from-center">Mike Young<span>Web Designer</span></h2>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-              <a href="http://www.twitter.com/mike_youngg"><i class="fa fa-twitter fa-2x"></i></a>
-              <a href="mailto:michael_y@live.co.uk"><i class="fa fa-envelope-o fa-2x"></i></a>
-              <a href="http://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a>
-            </div>
-
-          </div>
-        </div>
+    
 
 
       </div>
+
     </div>
   </div>
 </div>

@@ -16,10 +16,12 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'jkAngularRatingStars',
+    'ngMap'
   ]);
 
-app.config(['$stateProvider', '$urlRouterProvider' , function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider' , '$animateProvider', function ($stateProvider, $urlRouterProvider, $animateProvider) {
     
       $stateProvider
       .state('app', {
@@ -28,5 +30,6 @@ app.config(['$stateProvider', '$urlRouterProvider' , function ($stateProvider, $
           templateUrl: 'commons/html/main.html',
           controller: 'MainCtrl'
       });
+       $animateProvider.classNameFilter(/^((?!(fa-spinner)).)*$/);
 
   }]);

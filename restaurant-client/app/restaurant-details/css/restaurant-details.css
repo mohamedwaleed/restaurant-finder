@@ -1,0 +1,12 @@
+.review-rating .button .material-icons {
+  font-size: 20px; 
+}
+
+.submit-review-btn{
+	background-color: #f60;
+	border-color: #f60;
+}
+.submit-review-btn:hover{
+	background-color: #f60;
+	border-color: #f60;
+}
