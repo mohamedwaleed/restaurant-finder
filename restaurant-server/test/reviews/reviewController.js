@@ -1,5 +1,6 @@
 'use strict';
 /* global describe, it, beforeEach */
+
 process.env.NODE_ENV = 'test';
 
 var mongoose = require("mongoose");
@@ -7,6 +8,7 @@ var mongoose = require("mongoose");
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var app = require('../../app');
+chai.should();
 
 chai.use(chaiHttp);
 
