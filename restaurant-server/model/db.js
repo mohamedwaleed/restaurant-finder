@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var config = require('../config.json');
+var config = require('config');
 var reviewSchema = new mongoose.Schema({
     placeId: String,
     date: Date,
@@ -8,4 +8,4 @@ var reviewSchema = new mongoose.Schema({
     rating: Number
 });
 mongoose.model('Review', reviewSchema);
-mongoose.connect('mongodb://localhost/restaurant_finder');
+mongoose.connect(config["mongo.database.connection.url"]);

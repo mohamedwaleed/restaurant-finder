@@ -16,9 +16,28 @@ router.post('/', function(req, res) {
     }
     if(data === undefined || data === null){
         onFail();
+        return;
     }
 
+    if(data.placeId === undefined || data.placeId === null || data.placeId === ''){
+        onFail();
+        return;
+    }
 
+    if(data.date === undefined || data.date === null || data.date === ''){
+        onFail();
+        return;
+    }
+
+    if(data.name === undefined || data.name === null || data.name === ''){
+        onFail();
+        return;
+    }
+
+    if(data.description === undefined || data.description === null || data.description === ''){
+        onFail();
+        return;
+    }
     restaurantDetailsService.saveReview(data, onSuccess, onFail);
 
 });

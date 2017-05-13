@@ -1,0 +1,3 @@
+{
+  "mongo.database.connection.url" : "mongodb://localhost/restaurant_finder_test"
+}
