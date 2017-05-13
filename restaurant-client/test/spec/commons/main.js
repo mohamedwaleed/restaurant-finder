@@ -14,7 +14,7 @@ describe('Controller: MainCtrl', function () {
 
   it('should attach a list of awesomeThings to the scope', function () {
     var $scope = {};
-    var controller = $controller('MainCtrl', { $scope: $scope });
+    $controller('MainCtrl', { $scope: $scope });
     expect($scope.awesomeThings.length).toBe(3);
   });
 });

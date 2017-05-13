@@ -1,7 +1,7 @@
 'use strict';
+/* global returantFinderApp */
 
 function ReviewModel(ReviewService) {
-    var thisModel = this;
 
     this.getPlaceReviews = function(placeId, onSuccess, onFail) {
         var promise = ReviewService.get({placeId: placeId}).$promise;      
@@ -9,12 +9,12 @@ function ReviewModel(ReviewService) {
             if(onSuccess){
                 onSuccess(response.result);
             }
-        },function(err){
+        },function(){
             if(onFail){
                 onFail();
             }
         });
-    }
+    };
     this.saveReview = function(data, onSuccess, onFail) {
         var promise = ReviewService.save({}, data).$promise; 
         promise.then(function(response) {
@@ -25,7 +25,7 @@ function ReviewModel(ReviewService) {
                     onFail();
                 }
             }
-        },function(err){
+        },function(){
             if(onFail){
                 onFail();
             }
@@ -34,7 +34,7 @@ function ReviewModel(ReviewService) {
 }
 
 
-app.factory('ReviewModel', ['ReviewService',
+returantFinderApp.factory('ReviewModel', ['ReviewService',
     function(ReviewService) {
         var reviewModel = new ReviewModel(ReviewService);
         return reviewModel;

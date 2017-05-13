@@ -1,4 +1,7 @@
-app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $urlRouterProvider) {
+'use strict';
+/* global returantFinderApp */
+
+returantFinderApp.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $urlRouterProvider) {
     
       $stateProvider
       .state('app.home', {

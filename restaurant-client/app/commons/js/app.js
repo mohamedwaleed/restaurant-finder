@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name desktopApp
+ * @name returantFinderApp
  * @description
- * # desktopApp
+ * # returantFinderApp
  *
  * Main module of the application.
  */
-var app = angular
+ 
+var returantFinderApp = angular
   .module('returantFinderApp', [
     'ngAnimate',
     'ngCookies',
@@ -21,7 +22,7 @@ var app = angular
     'ngMap'
   ]);
 
-app.config(['$stateProvider', '$urlRouterProvider' , '$animateProvider', function ($stateProvider, $urlRouterProvider, $animateProvider) {
+returantFinderApp.config(['$stateProvider', '$urlRouterProvider' , '$animateProvider', function ($stateProvider, $urlRouterProvider, $animateProvider) {
     
       $stateProvider
       .state('app', {

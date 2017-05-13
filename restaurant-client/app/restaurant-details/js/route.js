@@ -1,4 +1,7 @@
-app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $urlRouterProvider) {
+'use strict';
+/* global returantFinderApp */
+
+returantFinderApp.config(['$stateProvider',function ($stateProvider) {
     
       $stateProvider
       .state('app.restaurant_details', {

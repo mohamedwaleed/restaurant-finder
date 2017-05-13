@@ -1,13 +1,14 @@
 'use strict';
+/* global returantFinderApp */
 
-app.controller('HomeCtrl', ['HomeModel', '$scope', function (HomeModel, $scope) {
+returantFinderApp.controller('HomeCtrl', ['HomeModel', '$scope', function (HomeModel, $scope) {
 	$scope.isLoading = true;
 	$scope.nearbyResturants = [];
 	function getNearbyResturantsToMyLocation() {
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(getPosition, error);
 	    } else {
-	        console.log("Geolocation is not supported by this browser.");
+	        console.log('Geolocation is not supported by this browser.');
 	    }
 	}
 	function error() {
@@ -23,10 +24,10 @@ app.controller('HomeCtrl', ['HomeModel', '$scope', function (HomeModel, $scope) 
 	}
 	function onSuccess() {
 		$scope.isLoading = false;
-	};
+	}
 	function onFail() {
 		$scope.isLoading = false;
-	};
+	}
 	getNearbyResturantsToMyLocation();
     
  }]);

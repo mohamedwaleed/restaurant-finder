@@ -1,13 +1,15 @@
 'use strict';
 
+/* global returantFinderApp */
+
 /**
  * @ngdoc function
- * @name desktopApp.controller:MainCtrl
+ * @name returantFinderApp.controller:MainCtrl
  * @description
  * # MainCtrl
  * Controller of the desktopApp
  */
-angular.module('returantFinderApp')
+returantFinderApp
   .controller('MainCtrl', function ($scope) {
-    	$scope.awesomeThings = ["1","2","3"];
+    	$scope.awesomeThings = ['1','2','3'];
   });

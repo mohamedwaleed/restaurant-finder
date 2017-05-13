@@ -1,17 +1,18 @@
 'use strict';
+/* global returantFinderApp */
 
-app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'RestaurantDetailsModel','ReviewModel',
+returantFinderApp.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'RestaurantDetailsModel','ReviewModel',
  function ($stateParams, $state, $scope, RestaurantDetailsModel,ReviewModel) {
-	if($stateParams.placeId === undefined || $stateParams.placeId === null || $stateParams.placeId === ""){
+	if($stateParams.placeId === undefined || $stateParams.placeId === null || $stateParams.placeId === ''){
 		$state.go('app.home');
 		return ;
 	}
 	var placeId = $stateParams.placeId;
 	$scope.isLoading = true;
 	$scope.rating = null ;
-	$scope.description = "";
+	$scope.description = '';
 	$scope.reviews = [];
-	$scope.name = "";
+	$scope.name = '';
 	$scope.resturantDetails = {};
 	$scope.avarageRating = 0;
 	function onSuccess(data) { 
@@ -35,7 +36,7 @@ app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'R
 			$scope.getAverageRating($scope.reviews);
 		}
 		function onFail() {
-			alert("Fail");
+			alert('Fail');
 		}
 
 		ReviewModel.getPlaceReviews(placeId, onSuccess, onFail);
@@ -43,8 +44,8 @@ app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'R
 	
 
 	$scope.submitReview = function() { 
-		if($scope.rating === null || $scope.description === "" || $scope.name === ""){
-			alert("You must fill all required fields");
+		if($scope.rating === null || $scope.description === '' || $scope.name === ''){
+			alert('You must fill all required fields');
 			return ;
 		}
 		var sentData = {
@@ -53,17 +54,17 @@ app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'R
 		    name: $scope.name,
 		    description: $scope.description,
 		    rating: $scope.rating
-		}
+		};
 		function onSuccess() { 
 			$scope.getPlaceReviews();
 		}
 		function onFail() {
-			alert("Fail");
+			alert('Fail');
 		}
 		ReviewModel.saveReview(sentData, onSuccess, onFail);
 		$scope.rating = 0;
-		$scope.name = "";
-		$scope.description = "";
+		$scope.name = '';
+		$scope.description = '';
 	};
 	$scope.onRestaurantRating = function(rating) {
 		$scope.rating = rating;

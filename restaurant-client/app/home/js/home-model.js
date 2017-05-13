@@ -1,4 +1,5 @@
 'use strict';
+/* global returantFinderApp */
 
 function HomeModel(HomeService, GOOGLE_API_KEY) {
     this.nearbyResturants = [];
@@ -21,7 +22,7 @@ function HomeModel(HomeService, GOOGLE_API_KEY) {
 }
 
 
-app.factory('HomeModel', ['HomeService','GOOGLE_API_KEY',
+returantFinderApp.factory('HomeModel', ['HomeService','GOOGLE_API_KEY',
     function(HomeService, GOOGLE_API_KEY) {
         var homeModel = new HomeModel(HomeService, GOOGLE_API_KEY);
         return homeModel;

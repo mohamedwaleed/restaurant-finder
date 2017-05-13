@@ -15,28 +15,28 @@ describe('Controller: RestaurantDetailsCtrl', function () {
   it('should should attach restaurant details to scope', function () {
     var $scope = {};
     
-    var controller = $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
+    $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
     expect($scope.resturantDetails).not.toBe(null);
     expect($scope.resturantDetails).not.toBe(undefined);
   });
 
   it('should get restaurant reviews to scope', function () {
     var $scope = {};
-    var controller = $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
+    $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
     expect($scope.reviews).not.toBe(null);
     expect($scope.reviews).not.toBe(undefined);
   });
 
   it('should bind restaurant rating to scope', function () {
     var $scope = {};
-    var controller = $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
+    $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
     $scope.onRestaurantRating(4);
     expect($scope.rating).toBe(4);
   });
 
   it('should get restaurant average reviews rating to scope', function () {
     var $scope = {};
-    var controller = $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
+    $controller('RestaurantDetailsCtrl', { $scope: $scope, $stateParams:stateParams });
     var reviews = [{rating: 4},{rating: 1},{rating: 5},{rating: 2},{rating: 3}];
     $scope.getAverageRating(reviews);
     expect($scope.avarageRating).toBe(3);

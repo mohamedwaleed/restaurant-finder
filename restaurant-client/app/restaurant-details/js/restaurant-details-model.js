@@ -1,4 +1,5 @@
 'use strict';
+/* global returantFinderApp */
 
 function RestaurantDetailsModel(restaurantDetailsService, GOOGLE_API_KEY) {
     this.resturantDetails = {};
@@ -17,11 +18,11 @@ function RestaurantDetailsModel(restaurantDetailsService, GOOGLE_API_KEY) {
             }
             console.log(err);
         });
-    }
+    };
 }
 
 
-app.factory('RestaurantDetailsModel', ['RestaurantDetailsService', 'GOOGLE_API_KEY',
+returantFinderApp.factory('RestaurantDetailsModel', ['RestaurantDetailsService', 'GOOGLE_API_KEY',
     function(RestaurantDetailsService, GOOGLE_API_KEY) {
         var restaurantDetailsModel = new RestaurantDetailsModel(RestaurantDetailsService, GOOGLE_API_KEY);
         return restaurantDetailsModel;
