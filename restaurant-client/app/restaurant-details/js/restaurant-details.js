@@ -2,7 +2,6 @@
 
 app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'RestaurantDetailsModel','ReviewModel',
  function ($stateParams, $state, $scope, RestaurantDetailsModel,ReviewModel) {
-	console.log($stateParams.placeId);
 	if($stateParams.placeId === undefined || $stateParams.placeId === null || $stateParams.placeId === ""){
 		$state.go('app.home');
 		return ;
@@ -13,6 +12,7 @@ app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'R
 	$scope.description = "";
 	$scope.reviews = [];
 	$scope.name = "";
+	$scope.resturantDetails = {};
 	$scope.avarageRating = 0;
 	function onSuccess(data) { 
 		$scope.isLoading = false;
@@ -22,16 +22,17 @@ app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'R
 		$scope.isLoading = false;
 	}
 	
-
-
+	$scope.getAverageRating = function(reviews) {
+		var sum = 0;
+		for(var i = 0 ; i < reviews.length ; i ++){
+			sum += reviews[i].rating; 
+		}
+		$scope.avarageRating = sum / reviews.length;
+	};
 	$scope.getPlaceReviews = function() {
 		function onSuccess(data) { 
 			$scope.reviews = data;
-			var sum = 0;
-			for(var i = 0 ; i < $scope.reviews.length ; i ++){
-				sum += $scope.reviews[i].rating; 
-			}
-			$scope.avarageRating = sum / $scope.reviews.length;
+			$scope.getAverageRating($scope.reviews);
 		}
 		function onFail() {
 			alert("Fail");
@@ -67,6 +68,9 @@ app.controller('RestaurantDetailsCtrl', ['$stateParams', '$state',  '$scope', 'R
 	$scope.onRestaurantRating = function(rating) {
 		$scope.rating = rating;
 	};
-	RestaurantDetailsModel.getRestaurantDetails(placeId, onSuccess, onFail);
+	$scope.getRestaurantDetails = function(placeId) {
+		RestaurantDetailsModel.getRestaurantDetails(placeId, onSuccess, onFail);
+	};
+	$scope.getRestaurantDetails(placeId);
 	$scope.getPlaceReviews();
  }]);

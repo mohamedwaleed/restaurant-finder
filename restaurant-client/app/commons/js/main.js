@@ -8,6 +8,6 @@
  * Controller of the desktopApp
  */
 angular.module('returantFinderApp')
-  .controller('MainCtrl', function () {
-    
+  .controller('MainCtrl', function ($scope) {
+    	$scope.awesomeThings = ["1","2","3"];
   });
