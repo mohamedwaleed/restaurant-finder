@@ -1,3 +1,5 @@
+'use strict';
+
 var review = require('../model/review');
 var reviewService =  (function () {
     var publicApi = {

@@ -1,3 +1,5 @@
+'use strict';
+
 var https = require('https');
 
 var restaurantDetailsService =  (function () {
@@ -5,7 +7,7 @@ var restaurantDetailsService =  (function () {
         getPlaceDetails: function(apiRequestParams, onSuccess, onFail) {
                 var path =  '/maps/api/place/details/json?' + apiRequestParams;
                 var httpHost = "https://maps.googleapis.com";
-                httpAddress = httpHost + path;
+                var httpAddress = httpHost + path;
                 var request = https.get(httpAddress, function(response) {
                      var data = "";
                      response.on('data', function(chunk){
@@ -19,7 +21,7 @@ var restaurantDetailsService =  (function () {
                 });
 
                 //handle http errors
-                request.on("error", function(error){
+                request.on("error", function(){
                     if(onFail){
                         onFail();
                     }
