@@ -11,9 +11,11 @@ router.get('/', function(req, res) {
 
   if(placeId === null || placeId === undefined) {
     res.send({success:false,msg: "place id parameter is not defined"});
+    return ;
   }
    if(key === null || key === undefined) {
       res.send({success:false,msg: "key parameter is not defined"});
+      return ;
    }
     var requestParams = "placeid=" + placeId + "&key=" + key;
 

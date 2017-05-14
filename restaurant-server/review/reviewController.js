@@ -12,6 +12,7 @@ router.post('/', function(req, res) {
          res.send({success:true});
     }
     function onFail() {
+        //@todo should return status code instead
         res.send({success:false});
     }
     if(data === undefined || data === null){
