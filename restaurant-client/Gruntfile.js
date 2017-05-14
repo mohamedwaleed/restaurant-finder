@@ -274,15 +274,15 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/styles/mm.css': [
+            '.tmp/styles/concat.css'
+          ]
+        }
+      }
+    },
     // uglify: {
     //   dist: {
     //     files: {
@@ -292,9 +292,12 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // concat: {
-    //   dist: {}
-    // },
+    concat: {
+      css: {
+        src: ['.tmp/styles/**/*.css'],
+        dest: '.tmp/styles/concat.css'
+      }
+    },
 
     imagemin: {
       dist: {
@@ -377,16 +380,18 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
-            '*.{ico,png,txt}',
-            '*.html',
-            'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            '**/*.{ico,png,txt,jpg}',
+            '**/*.html',
+            '**/images/{,*/}*.{webp}',
+            'styles/fonts/{,*/}*.*',
+            '**/*.css'
           ]
         }, {
           expand: true,
-          cwd: '.tmp/images',
+          flatten: true,
+          cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
+          src: ['**/*.{ico,png,jpg}']
         }, {
           expand: true,
           cwd: 'bower_components/bootstrap/dist',
@@ -396,9 +401,9 @@ module.exports = function (grunt) {
       },
       styles: {
         expand: true,
-        cwd: '<%= yeoman.app %>/styles',
+        cwd: '<%= yeoman.app %>',
         dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        src: ['**/*.css']
       }
     },
 
