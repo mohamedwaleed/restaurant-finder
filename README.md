@@ -46,13 +46,13 @@ Run the follwing command
     grunt build
 
 This command will create a folder called **dist** that has all nessesary files to deploy the appliation but there 3 more steps you have to do : 
-1- copy **bower_component** folder to **dist** folder.
-2- open original index.html file and copy all link tags that is exist in the head tag and past them in index.html inside the **dist** folder
-3- copy the dist folder to nginx directory ( in linux /var/www/html )
+- copy **bower_component** folder to **dist** folder.
+- open original index.html file and copy all link tags that is exist in the head tag and past them in index.html inside the **dist** folder
+- copy the dist folder to nginx directory ( in linux /var/www/html )
 
 You can rename your folder to whatever you want.
 access the apppliation by goto the following address : 
-http://{domain}/{folder name} -> in out case **dist**
+http://{domain}/{folder name} -> in our case **dist**
 
 
 
@@ -60,8 +60,11 @@ http://{domain}/{folder name} -> in out case **dist**
 --------------------
 Configuring Project
 --------------------
-Required software: NodeJS, Node Package Manager.
+Required software: NodeJS, Node Package Manager, mongodb.
 Install NodeJS and npm according to your operating system.
+Install mongodb according to your operating system.
+**Make sure that mongo authentication is disabled**
+**Make sure that mongo database is up**
 After cloning the repository, you need install the neccessary node modules by running these commands inside **restaurant-server** folder.
 
     npm install
@@ -94,9 +97,10 @@ Integration with jenkins
 * Add new project in jenkins, point to github repository
 * Choose build trigger : **GitHub hook trigger for GITScm polling**
 * Add 5 build step as the following :    
-    1- cd restaurant-server , npm install
-    2- cd restaurant-client , npm install, bower install
-    3- cd restaurant-server, npm test
-    4- cd restaurant-client, grunt test
-    5- cd restaurant-client, grunt jshint:all
+    - cd restaurant-server , npm install.
+    - cd restaurant-client , npm install, bower install.
+    - cd restaurant-server, npm test.
+    - cd restaurant-client, grunt test.
+    - cd restaurant-client, grunt jshint:all.
 * Also you can increase number of build steps for automated deployment.
+
