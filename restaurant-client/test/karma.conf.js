@@ -30,6 +30,8 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-jk-rating-stars/dist/jk-rating-stars.js',
       'bower_components/ngmap/build/scripts/ng-map.js',
+      'http://maps.google.com/maps/api/js?key=AIzaSyBvh95idRI46rYYWqQpoHatZve2GoWIfUg&libraries=places',
+      'bower_components/angularjs-google-maps/dist/angularjs-google-maps.js',
       'app/**/*.js',
       'test/spec/**/*.js'
     ],

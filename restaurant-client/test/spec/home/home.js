@@ -13,7 +13,7 @@ describe('Controller: HomeCtrl', function () {
   }));
 
   it('should attach a list of nearby resturants to the scope', function () {
-    var $scope = {};
+    var $scope = {'$on':function(){}};
     $controller('HomeCtrl', { $scope: $scope });
     expect($scope.nearbyResturants).not.toBe(null);
     expect($scope.nearbyResturants).not.toBe(undefined);

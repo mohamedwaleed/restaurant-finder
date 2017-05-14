@@ -19,7 +19,8 @@ var returantFinderApp = angular
     'ngTouch',
     'ui.router',
     'jkAngularRatingStars',
-    'ngMap'
+    'ngMap',
+    'gm'
   ]);
 
 returantFinderApp.config(['$stateProvider', '$urlRouterProvider' , '$animateProvider', function ($stateProvider, $urlRouterProvider, $animateProvider) {

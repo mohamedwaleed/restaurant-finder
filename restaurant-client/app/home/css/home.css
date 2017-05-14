@@ -220,3 +220,7 @@
 }
 
 
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+    background-color: #f60 !important;
+    border-color: #f60;
+}
